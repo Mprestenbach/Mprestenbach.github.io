@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Prestenbach-CTI110.0007-Guess the number game"/>
+        <attribute name="authors" value="mpres"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-09 12:21:34 PM"/>
+        <attribute name="created" value="bXByZXM7TUlLRTsyMDI0LTExLTA1OzA3OjA3OjAyIFBNOzIxMjA="/>
+        <attribute name="edited" value="bXByZXM7TUlLRTsyMDI0LTExLTA5OzEyOjIxOjM0IFBNOzM7MjIzMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Prestenbach CTI110.0007"/>
+            <comment text="Test cases &#13;&#10;&#13;&#10;When you input the -999 guess it will tell you that you quit the game.&#13;&#10;&#13;&#10;When you input a number if you or too high or low it tells you so, if guess the right number it tells you Congratulations! You guessed the correct number."/>
+            <declare name="targetNumber" type="Integer" array="False" size=""/>
+            <declare name="guessedNumber" type="Integer" array="False" size=""/>
+            <assign variable="targetNumber" expression="Random (100)"/>
+            <output expression="&quot;Guess a number between 1 and 100 or enter -999 to quit: &quot;" newline="True"/>
+            <input variable="guessedNumber"/>
+            <while expression="guessedNumber != targetNumber AND guessedNumber != -999">
+                <if expression="guessedNumber &lt; targetNumber">
+                    <then>
+                        <output expression="&quot;Too Low&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="guessedNumber &gt; targetNumber">
+                            <then>
+                                <output expression="&quot;Too High&quot;" newline="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Guess a number between 1 and 100 or enter -999 to quit: &quot;" newline="True"/>
+                <input variable="guessedNumber"/>
+            </while>
+            <if expression="guessedNumber == targetNumber AND guessedNumber != -999">
+                <then>
+                    <output expression="&quot;Congratulations! You guessed the correct number.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;You quit the game.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
